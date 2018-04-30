@@ -20,6 +20,10 @@ class GoogleKeepViewController: NSViewController {
         let request = URLRequest(url: url!)
         webView.load(request)
     }
+    
+    override func viewDidAppear() {
+        NSApplication.shared.activate(ignoringOtherApps: true)
+    }
 }
 
 
