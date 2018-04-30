@@ -38,6 +38,7 @@ extension GoogleKeepViewController {
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? GoogleKeepViewController else {
             fatalError("Why cant i find GoogleKeepViewController? - Check Main.storyboard")
         }
+        viewcontroller.loadView()
         return viewcontroller
     }
 }
