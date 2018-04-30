@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		675E0455209713AF00F008DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E0454209713AF00F008DF /* AppDelegate.swift */; };
-		675E0457209713AF00F008DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E0456209713AF00F008DF /* ViewController.swift */; };
 		675E0459209713B100F008DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 675E0458209713B100F008DF /* Assets.xcassets */; };
 		675E045C209713B100F008DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675E045A209713B100F008DF /* Main.storyboard */; };
 		675E046520971B9B00F008DF /* GoogleKeepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E046420971B9B00F008DF /* GoogleKeepViewController.swift */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		675E0451209713AF00F008DF /* GoogleKeepMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleKeepMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		675E0454209713AF00F008DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		675E0456209713AF00F008DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		675E0458209713B100F008DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		675E045B209713B100F008DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		675E045D209713B100F008DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 				675E0454209713AF00F008DF /* AppDelegate.swift */,
 				675E04662097463B00F008DF /* EventMonitor.swift */,
 				675E046420971B9B00F008DF /* GoogleKeepViewController.swift */,
-				675E0456209713AF00F008DF /* ViewController.swift */,
 				675E0458209713B100F008DF /* Assets.xcassets */,
 				675E045A209713B100F008DF /* Main.storyboard */,
 				675E045D209713B100F008DF /* Info.plist */,
@@ -139,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				675E0457209713AF00F008DF /* ViewController.swift in Sources */,
 				675E0455209713AF00F008DF /* AppDelegate.swift in Sources */,
 				675E046520971B9B00F008DF /* GoogleKeepViewController.swift in Sources */,
 				675E04672097463B00F008DF /* EventMonitor.swift in Sources */,
