@@ -9,17 +9,21 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    let menu = NSMenu()
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        menu.delegate = self
+        menu.addItem(NSMenuItem(title: "Quit GoogleKeepMenu", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("IconTemplate"))
-            button.action = #selector(togglePopover(_:))
+            button.action = #selector(menuItemClicked(_:))
+            button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
         popover.contentViewController = GoogleKeepViewController.freshController()
 
@@ -41,7 +45,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("\(quoteText) — \(quoteAuthor)")
     }
 
-    @objc func togglePopover(_ sender: Any?) {
+    @objc func menuItemClicked(_ sender: Any?) {
+        let event = NSApp.currentEvent!
+        if event.type == NSEvent.EventType.rightMouseUp {
+            openMenu(sender)
+        } else {
+            togglePopover(sender)
+        }
+    }
+    
+    func openMenu(_ sender: Any?) {
+        self.statusItem.popUpMenu(menu)
+    }
+    
+    func togglePopover(_ sender: Any?) {
         if popover.isShown {
             closePopover(sender: sender)
         } else {
