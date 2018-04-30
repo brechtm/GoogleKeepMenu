@@ -7,14 +7,19 @@
 //
 
 import Cocoa
+import WebKit
 
 class GoogleKeepViewController: NSViewController {
 
+    @IBOutlet var webView: WKWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+
+        let url = URL(string: "https://keep.google.com")
+        let request = URLRequest(url: url!)
+        webView.load(request)
     }
-    
 }
 
 
@@ -27,7 +32,7 @@ extension GoogleKeepViewController {
         let identifier = NSStoryboard.SceneIdentifier(rawValue: "GoogleKeepViewController")
         //3.
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? GoogleKeepViewController else {
-            fatalError("Why cant i find QuotesViewController? - Check Main.storyboard")
+            fatalError("Why cant i find GoogleKeepViewController? - Check Main.storyboard")
         }
         return viewcontroller
     }
