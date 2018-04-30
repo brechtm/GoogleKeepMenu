@@ -25,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             button.action = #selector(menuItemClicked(_:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
+        popover.animates = false
         popover.contentViewController = GoogleKeepViewController.freshController()
 
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
