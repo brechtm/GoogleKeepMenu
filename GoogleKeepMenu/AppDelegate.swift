@@ -45,13 +45,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         self.alwaysOnTop = !self.alwaysOnTop
     }
 
-    @objc func printQuote(_ sender: Any?) {
-        let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
-        let quoteAuthor = "Mark Twain"
-        
-        print("\(quoteText) — \(quoteAuthor)")
-    }
-
     @objc func menuItemClicked(_ sender: Any?) {
         let event = NSApp.currentEvent!
         if event.type == NSEvent.EventType.rightMouseUp {
