@@ -14,11 +14,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let menu = NSMenu()
     let popover = NSPopover()
+    var alwaysOnTop = false
     var eventMonitor: EventMonitor?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         menu.delegate = self
         menu.addItem(NSMenuItem(title: "Quit GoogleKeepMenu", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: "Toggle Always On Top", action: #selector(toggleOnTopClicked), keyEquivalent: "a"))
 
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("IconTemplate"))
@@ -29,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         popover.contentViewController = GoogleKeepViewController.freshController()
 
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
-            if let strongSelf = self, strongSelf.popover.isShown {
+            if let strongSelf = self, strongSelf.popover.isShown && !strongSelf.alwaysOnTop {
                 strongSelf.closePopover(sender: event)
             }
         }
@@ -37,6 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+    
+    @objc func toggleOnTopClicked() {
+        self.alwaysOnTop = !self.alwaysOnTop
     }
 
     @objc func printQuote(_ sender: Any?) {
